@@ -9,7 +9,8 @@ public class WormController : MonoBehaviour
     public Vector3 y;
     public ForceMode f;
     public KeyCode jumpkey;
-    public KeyCode sidekey;
+    public KeyCode forwardkey;
+    public Keycode backkey;
     
     // Update is called once per frame
     void Update()
@@ -21,10 +22,16 @@ public class WormController : MonoBehaviour
             rb.AddForce(x,f);
         }
 
-        if (Input.GetKeyDown(sidekey))
+        if (Input.GetKeyDown(forwardkey))
         {
-            Debug.Log("Die Side-Taste wurde gedrückt");
+            Debug.Log("Die Forward-Taste wurde gedrückt");
             rb.AddForce(y,f);
+        }
+
+        if (Input.GetKeyDown(backkey))
+        {
+            Debug.Log("Die Back-Taste wurde gedrückt");
+            rb.AddForce(-forwardkey);
         }
     }
 }

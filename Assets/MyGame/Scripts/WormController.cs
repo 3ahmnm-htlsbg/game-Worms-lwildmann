@@ -11,6 +11,10 @@ public class WormController : MonoBehaviour
     public KeyCode jumpkey;
     public KeyCode forwardkey;
     public KeyCode backkey;
+    public KeyCode downkey;
+    public KeyCode shootkey;
+
+    public GameObject projectile;
     
     // Update is called once per frame
     void Update()
@@ -33,5 +37,19 @@ public class WormController : MonoBehaviour
             Debug.Log("Die Back-Taste wurde gedrückt");
             rb.AddForce( y * (-1));
         }
+
+        if (Input.GetKeyDown(downkey))
+        {
+            Debug.Log("Die Down-Taste wurde gedrückt");
+            rb.AddForce(x * (-1));
+        }
+
+        if (Input.GetKeyDown(shootkey))
+        {
+            Debug.Log("Pew Pew");
+            Instantiate(projectile);
+        }
     }
+
+    //Prefab -> pre fabricated = vorab gebaut
 }

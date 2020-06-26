@@ -7,12 +7,15 @@ public class WormController : MonoBehaviour
     public Rigidbody rb;
     public Vector3 x;
     public Vector3 y;
+    public Vector3 position;
+    public Quaternion quat;
     public ForceMode f;
     public KeyCode jumpkey;
     public KeyCode forwardkey;
     public KeyCode backkey;
     public KeyCode downkey;
     public KeyCode shootkey;
+    public GameObject spawnLocation;
 
     public GameObject projectile;
     
@@ -47,9 +50,12 @@ public class WormController : MonoBehaviour
         if (Input.GetKeyDown(shootkey))
         {
             Debug.Log("Pew Pew");
-            Instantiate(projectile);
+            position = spawnLocation.transform.position;
+            Instantiate(projectile, position, quat);
         }
     }
+
+   
 
     //Prefab -> pre fabricated = vorab gebaut
 }
